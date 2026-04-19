@@ -59,7 +59,7 @@ body{
     color: #ffffff !important;
 }
 .log{
-    height: 71vh !important;
+    height: 76vh !important;
 }
 
         
@@ -107,7 +107,7 @@ body{
     border-color: #ced4da;
 }
 .home{
-    height: 71vh;
+    height: 76vh;
 }
 .bg-primary { background-color: var(--bs-primary) !important; }
 .text-primary { color: var(--bs-primary) !important; }
@@ -149,12 +149,10 @@ body{
         height: auto !important;
     }
     .log{
-    	height: 68vh !important;
+    	height: 70vh !important;
 	}
     
-	.home{
-    	height: 60vh;
-	}
+
     .navbar-collapse {
         margin-top: 50px;
     }
