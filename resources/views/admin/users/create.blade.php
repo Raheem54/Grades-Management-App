@@ -40,12 +40,12 @@ Create New User
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label fw-bold small">Email Address</label>
+                            <label for="user" class="form-label fw-bold small">User name</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-light text-secondary border-end-0">
                                     <i class="fas fa-envelope"></i>
                                 </span>
-                                <input type="email" id="email" name="email" class="form-control border-start-0 ps-0" placeholder="email@example.com" required>
+                                <input type="text" id="user" name="email" class="form-control border-start-0 ps-0" placeholder="username" required>
                             </div>
                         </div>
 

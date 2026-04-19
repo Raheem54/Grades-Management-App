@@ -52,27 +52,4 @@ add course
         </div>
     </div>
 </div>
-
-<style>
-
-    .bg-primary { background-color: var(--bs-primary) !important; }
-    .btn-primary { 
-        background-color: var(--bs-primary) !important; 
-        border-color: var(--bs-primary) !important; 
-    }
-    .btn-primary:hover {
-        filter: brightness(92%);
-    }
-    .text-primary { color: var(--bs-primary) !important; }
-    .text-secondary { color: var(--bs-secondary) !important; }
-
-    .form-control:focus {
-        border-color: var(--bs-primary);
-        box-shadow: 0 0 0 0.25rem rgba(242, 139, 0, 0.1);
-    }
-    
-    .input-group-text {
-        border-right: none;
-    }
-</style>
 @endsection
