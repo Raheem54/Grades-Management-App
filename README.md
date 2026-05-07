@@ -29,8 +29,8 @@ Follow these steps to get the project running locally:
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/Raheem54/tp-leyh-bydary.git](https://github.com/Raheem54/tp-leyh-bydary.git)
-cd tp-leyh-bydary
+git clone [https://github.com/Raheem54/Grades-Management-App.git](https://github.com/Raheem54/Grades-Management-App.git)
+cd Grades-Management-App
 ```
 
 ### 2. Install dependencies
