@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contracts\DegreesOCRInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PDFFileRequest;
+use App\Http\Requests\promptRequest;
 use App\Models\Admin\course;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,15 +21,17 @@ class DegreeController extends Controller
         $data['users']=User::all('id','name');
         return view("admin.grades.create")->with($data);
     }
-    public function store(Request $request){
-        $request->validate([
-            "course" => "required|integer",
-            "degrees" => "required|json"
-        ]);
-        $degrees = json_decode($request->degrees, true);
-        
-        $course=course::find($request->course);
-        $course->students()->syncWithoutDetaching($degrees);
-        return redirect(url("dashboard/degrees"));
+    public function storeGemini(PDFFileRequest $request,DegreesOCRInterface $Degrees){
+        $Degrees->getDegrees($request);
+        return redirect("dashboard/degrees");
+    }
+    public function storePrompt(promptRequest $request,DegreesOCRInterface $Degrees){
+        $Degrees->getDegrees($request);
+        return redirect("dashboard/degrees");
+    }
+    public function delete(Request $request){
+        $course=course::find($request->id);
+        $course->students()->detach();
+        return redirect()->back();
     }
 }
