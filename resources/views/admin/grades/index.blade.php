@@ -21,9 +21,20 @@ Student Degrees
                     <h5 class="mb-0 text-white fw-bold">
                         <i class="fas fa-layer-group text-primary me-2"></i> {{ $course->name }}
                     </h5>
-                    <span class="badge bg-primary rounded-pill px-3">
-                        Max Degree: {{ $course->max_degree }}
-                    </span>
+                    <div class="">
+
+                        <span class="badge bg-primary rounded-pill px-3">
+                            Max Degree: {{ $course->max_degree }}
+                        </span>
+                        <span class="badge rounded-pill ">
+                            <form action="{{ url('dashboard/degrees/delete/') }}" method="POST">
+                                @csrf
+                                @method("delete")
+                                <input type="hidden" name="id" value="{{ $course->id }}">
+                                <button class="btn btn-danger px-3 rounded-pill text-white" href=><i class="fas fa-trash"></i></button>
+                            </form>
+                        </span>
+                    </div>
                 </div>
 
                 <div class="card-body p-0">
