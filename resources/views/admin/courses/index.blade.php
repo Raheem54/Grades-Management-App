@@ -23,6 +23,7 @@ courses
                         <tr class="text-secondary text-uppercase small fw-bolder">
                             <th class="ps-4 py-3">name </th>
                             <th class="text-center py-3">Max Degree</th>
+                            <th class="text-center py-3">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,6 +41,14 @@ courses
                                 <span class="badge rounded-pill bg-primary px-3 py-2 fs-6">
                                     {{ $course->max_degree }}
                                 </span>
+                            </td>
+                            <td>
+                                <form action="{{ url('dashboard/courses/delete') }}" method="POST">
+                                    @csrf
+                                    @method("delete")
+                                    <input type="hidden" name="id" value="{{ $course->id }}">
+                                    <button class="btn btn-danger text-white" href=><i class="fas fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach
