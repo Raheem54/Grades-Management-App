@@ -11,7 +11,7 @@ class StorecourseRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class StorecourseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'max_degree' => "required|numeric",
+            'name' => "required|string"
         ];
     }
 }
