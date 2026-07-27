@@ -17,15 +17,15 @@ class UserController extends Controller
         return view("admin.users.create");
     }
     public function store(CreateNewUser $creator,Request $request){
-        $user = $creator->create($request->all());
+        $creator->create($request->all());
         return redirect(url("dashboard/users"));
     }
-    public function delete($id){
-        $user=User::find($id);
+    public function delete(Request $request){
+        $user=User::find($request->id);
         if($user) {
             $user->delete();
         }
-        return redirect(url("dashboard/users"));
+        return redirect()->back();
     }
 
 }
