@@ -18,16 +18,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class,"index"])->middleware('auth');
-Route::prefix("/dashboard")->middleware("auth","isadmin")->group(function(){
+Route::prefix("/dashboard")->middleware(["auth","isadmin"])->group(function(){
     Route::get("/courses",[CourseController::class,"index"]);
     Route::get("/users",[UserController::class,"index"]);
     Route::get("/users/create",[UserController::class,"create"]);
     Route::get("/degrees",[DegreeController::class,"index"]);
     Route::get("/degrees/create",[DegreeController::class,"create"]);
-    Route::post("/degrees/store",[DegreeController::class,"store"]);
+    Route::post("/degrees/store/gemini",[DegreeController::class,"storeGemini"])->name('Gemini');
+    Route::post("/degrees/store/prompt",[DegreeController::class,"storePrompt"])->name('Prompt');
     Route::post("/users/store",[UserController::class,"store"]);
     Route::get("/courses/create",[CourseController::class,"create"]);
     Route::post("/courses/store",[CourseController::class,"store"]);
-    Route::get("/users/delete/{id}",[UserController::class,"delete"]);
+    Route::delete("/courses/delete",[CourseController::class,"delete"]);
+    Route::delete("/users/delete",[UserController::class,"delete"]);
+    Route::delete("/degrees/delete",[DegreeController::class,"delete"]);
 
 });
