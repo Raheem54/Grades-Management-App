@@ -51,8 +51,13 @@ User Management
                                         <span class="text-muted"><i class="fas fa-envelope me-2 small"></i>{{ $user->email }}</span>
                                     </td>
                                     <td>
-                                        <a class="btn btn-danger text-white" href="{{ url('dashboard/users/delete/' . $user->id) }}"><i class="fas fa-trash"></i></a>
-                                    </td>
+                                <form action="{{ url('dashboard/users/delete/') }}" method="POST">
+                                    @csrf
+                                    @method("delete")
+                                    <input type="hidden" name="id" value="{{ $user->id }}">
+                                    <button class="btn btn-danger text-white" href=><i class="fas fa-trash"></i></button>
+                                </form>
+                            </td>
                                 </tr>
                                 @endforeach
                             </tbody>
